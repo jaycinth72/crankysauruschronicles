@@ -1,0 +1,51 @@
+{
+  "stickyPosts": [
+    {
+      "id": "post-20250817-103451",
+      "title": "The Answerosaurus: FAQs",
+      "excerpt": "Everything you never wanted to know about this blog, but I’m going to tell you anyway.",
+      "date": "2025-08-17",
+      "lastModified": "2025-08-17T10:34:51.224193",
+      "contentFile": "posts/post-20250817-103451.html",
+      "thumbnail": "images/FAQs.jpg"
+    },
+    {
+      "id": "The_Helpfulsaurus_Alternative_productivity_methods_20250823-111327",
+      "title": "The Helpfulsaurus: Alternative productivity methods",
+      "excerpt": "A guide to non-dinosaur-supervised productivity approaches.",
+      "date": "2025-08-23",
+      "lastModified": "2025-08-23T11:13:27.221564",
+      "contentFile": "posts/The_Helpfulsaurus_Alternative_productivity_methods_20250823-111327.html",
+      "thumbnail": "/images/Alternatives.jpg"
+    }
+  ],
+  "latestPosts": [
+    {
+      "id": "The_Professorsaurus_Meet_Rexie_Roller_20250823-105313",
+      "title": "The Professorsaurus: Meet Rexie Roller",
+      "excerpt": "An epic interview with The Crankysaurus Chronicles' Chief Dinosaur Supervisor Rexie Roller.",
+      "date": "2025-08-23",
+      "lastModified": "2025-08-23T10:53:13.978208",
+      "contentFile": "posts/The_Professorsaurus_Meet_Rexie_Roller_20250823-105313.html",
+      "thumbnail": "/images/Meet_Rexie.jpg"
+    },
+    {
+      "id": "The_Revolutionasaurus_I_am_cranky,_hear_me_ROAR_20250823-092958",
+      "title": "The Revolutionasaurus: I am cranky, hear me ROAR!",
+      "excerpt": "ROAR goals, sticker rewards, and dinosaur supervision for humans who've tried everything else.",
+      "date": "2025-08-23",
+      "lastModified": "2025-08-23T09:29:58.686757",
+      "contentFile": "posts/The_Revolutionasaurus_I_am_cranky,_hear_me_ROAR_20250823-092958.html",
+      "thumbnail": "images/The Revolutionosaurus.jpg"
+    },
+    {
+      "id": "post-20250817-122021",
+      "title": "The Dopeysaurus: Why SMART goals made me feel dumb",
+      "excerpt": "Why SMART goals made me feel dumb, and how Supernanny accidentally solved my decades-long productivity crisis.",
+      "date": "2025-08-17",
+      "lastModified": "2025-08-17T14:05:04.193239",
+      "contentFile": "posts/post-20250817-122021.html",
+      "thumbnail": "images/The_Dopeysaurus-cropped.jpg"
+    }
+  ]
+}

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word HTML Cleaner for Blog Posts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        textarea {
+            width: 100%;
+            min-height: 300px;
+            padding: 1rem;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            resize: vertical;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .button.secondary {
+            background: #6c757d;
+        }
+        
+        .button.success {
+            background: #28a745;
+        }
+        
+        .preview {
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 1rem;
+            background: #f8f9fa;
+            min-height: 200px;
+            overflow-x: auto;
+        }
+        
+        .instructions {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        
+        .instructions h3 {
+            color: #1976d2;
+            margin-bottom: 0.5rem;
+        }
+        
+        .instructions ol {
+            margin-left: 1.5rem;
+        }
+        
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Word HTML Cleaner</h1>
+            <p>Clean up Microsoft Word HTML exports for your blog posts</p>
+        </div>
+        
+        <div class="content">
+            <div class="instructions">
+                <h3>How to Use:</h3>
+                <ol>
+                    <li>Create your blog post in Microsoft Word</li>
+                    <li>Save as <strong>"Web Page, Filtered (*.html)"</strong></li>
+                    <li>Open the HTML file in a text editor and copy all the content</li>
+                    <li>Paste it in the "Raw HTML from Word" box below</li>
+                    <li>Click "Clean HTML" to get blog-ready content</li>
+                    <li>Copy the cleaned HTML and save it as your post's content file</li>
+                </ol>
+            </div>
+            
+            <div class="section">
+                <h2>Raw HTML from Word</h2>
+                <textarea id="rawHtml" placeholder="Paste your Word HTML export here..."></textarea>
+                <div style="margin-top: 1rem;">
+                    <button class="button" onclick="cleanHtml()">🧹 Clean HTML</button>
+                    <button class="button secondary" onclick="clearAll()">🗑️ Clear All</button>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Cleaned HTML</h2>
+                <div class="stats">
+                    <span id="originalSize">Original: 0 chars</span>
+                    <span id="cleanedSize">Cleaned: 0 chars</span>
+                    <span id="reduction">Reduction: 0%</span>
+                </div>
+                <textarea id="cleanedHtml" placeholder="Cleaned HTML will appear here..."></textarea>
+                <div style="margin-top: 1rem;">
+                    <button class="button success" onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+                    <button class="button secondary" onclick="downloadHtml()">💾 Download HTML</button>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Preview</h2>
+                <div class="preview" id="preview">
+                    Preview will appear here after cleaning...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function cleanHtml() {
+            const rawHtml = document.getElementById('rawHtml').value;
+            if (!rawHtml.trim()) {
+                alert('Please paste some HTML content first!');
+                return;
+            }
+            
+            let cleaned = rawHtml;
+            
+            // Remove Word-specific meta tags and XML namespaces
+            cleaned = cleaned.replace(/<\?xml[^>]*>/gi, '');
+            cleaned = cleaned.replace(/<html[^>]*>/gi, '');
+            cleaned = cleaned.replace(/<\/html>/gi, '');
+            cleaned = cleaned.replace(/<head[^>]*>[\s\S]*?<\/head>/gi, '');
+            cleaned = cleaned.replace(/<body[^>]*>/gi, '');
+            cleaned = cleaned.replace(/<\/body>/gi, '');
+            
+            // Remove Word-specific CSS classes and IDs
+            cleaned = cleaned.replace(/class="[^"]*"/gi, '');
+            cleaned = cleaned.replace(/id="[^"]*"/gi, '');
+            
+            // Remove Word-specific style attributes but keep some basic ones
+            cleaned = cleaned.replace(/style="[^"]*"/gi, (match) => {
+                const style = match.match(/style="([^"]*)"/)[1];
+                const allowedStyles = [];
+                
+                // Keep some useful styles
+                if (style.includes('text-align')) {
+                    const textAlign = style.match(/text-align:\s*([^;]+)/);
+                    if (textAlign) allowedStyles.push(`text-align: ${textAlign[1].trim()}`);
+                }
+                if (style.includes('font-weight: bold') || style.includes('font-weight:bold')) {
+                    allowedStyles.push('font-weight: bold');
+                }
+                if (style.includes('font-style: italic') || style.includes('font-style:italic')) {
+                    allowedStyles.push('font-style: italic');
+                }
+                
+                return allowedStyles.length > 0 ? `style="${allowedStyles.join('; ')}"` : '';
+            });
+            
+            // Remove empty style attributes
+            cleaned = cleaned.replace(/\s*style=""\s*/gi, ' ');
+            
+            // Remove Word-specific tags
+            cleaned = cleaned.replace(/<o:p[^>]*>[\s\S]*?<\/o:p>/gi, '');
+            cleaned = cleaned.replace(/<o:p[^>]*\/>/gi, '');
+            cleaned = cleaned.replace(/<w:[^>]*>[\s\S]*?<\/w:[^>]*>/gi, '');
+            cleaned = cleaned.replace(/<w:[^>]*\/>/gi, '');
+            
+            // Remove Word-specific attributes
+            cleaned = cleaned.replace(/\s*lang="[^"]*"/gi, '');
+            cleaned = cleaned.replace(/\s*xml:lang="[^"]*"/gi, '');
+            cleaned = cleaned.replace(/\s*dir="[^"]*"/gi, '');
+            
+            // Clean up spans that don't add value
+            cleaned = cleaned.replace(/<span[^>]*>\s*<\/span>/gi, '');
+            cleaned = cleaned.replace(/<span>([^<]+)<\/span>/gi, '$1');
+            
+            // Convert Word headings to proper HTML headings
+            cleaned = cleaned.replace(/<p[^>]*><strong>([^<]+)<\/strong><\/p>/gi, '<h2>$1</h2>');
+            
+            // Remove excessive whitespace and empty paragraphs
+            cleaned = cleaned.replace(/<p[^>]*>\s*<\/p>/gi, '');
+            cleaned = cleaned.replace(/\s+/g, ' ');
+            cleaned = cleaned.replace(/>\s+</g, '><');
+            
+            // Fix image paths (convert to relative paths)
+            cleaned = cleaned.replace(/src="[^"]*([^\/\\]+\.(jpg|jpeg|png|gif|webp))"/gi, 'src="images/$1"');
+            
+            // Remove any remaining empty attributes
+            cleaned = cleaned.replace(/\s+>/g, '>');
+            cleaned = cleaned.trim();
+            
+            // Update the cleaned HTML textarea
+            document.getElementById('cleanedHtml').value = cleaned;
+            
+            // Update preview
+            document.getElementById('preview').innerHTML = cleaned;
+            
+            // Update stats
+            updateStats(rawHtml.length, cleaned.length);
+        }
+        
+        function updateStats(originalLength, cleanedLength) {
+            const reduction = Math.round(((originalLength - cleanedLength) / originalLength) * 100);
+            
+            document.getElementById('originalSize').textContent = `Original: ${originalLength.toLocaleString()} chars`;
+            document.getElementById('cleanedSize').textContent = `Cleaned: ${cleanedLength.toLocaleString()} chars`;
+            document.getElementById('reduction').textContent = `Reduction: ${reduction}%`;
+        }
+        
+        function clearAll() {
+            document.getElementById('rawHtml').value = '';
+            document.getElementById('cleanedHtml').value = '';
+            document.getElementById('preview').innerHTML = 'Preview will appear here after cleaning...';
+            updateStats(0, 0);
+        }
+        
+        async function copyToClipboard() {
+            const cleanedHtml = document.getElementById('cleanedHtml').value;
+            if (!cleanedHtml.trim()) {
+                alert('No cleaned HTML to copy!');
+                return;
+            }
+            
+            try {
+                await navigator.clipboard.writeText(cleanedHtml);
+                alert('HTML copied to clipboard!');
+            } catch (err) {
+                // Fallback for older browsers
+                document.getElementById('cleanedHtml').select();
+                document.execCommand('copy');
+                alert('HTML copied to clipboard!');
+            }
+        }
+        
+        function downloadHtml() {
+            const cleanedHtml = document.getElementById('cleanedHtml').value;
+            if (!cleanedHtml.trim()) {
+                alert('No cleaned HTML to download!');
+                return;
+            }
+            
+            const blob = new Blob([cleanedHtml], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'cleaned-post-content.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        
+        // Auto-clean on paste (optional)
+        document.getElementById('rawHtml').addEventListener('paste', () => {
+            setTimeout(() => {
+                if (document.getElementById('rawHtml').value.trim()) {
+                    cleanHtml();
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>
