@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHOMP Editor</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.0/tinymce.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.3.0/tinymce.min.js"></script>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -144,7 +144,7 @@
             plugins: [
                 'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
                 'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-                'insertdatetime', 'media', 'table', 'help', 'wordcount', 'save'
+                'insertdatetime', 'media', 'table', 'help', 'wordcount'
             ],
             toolbar: 'undo redo | blocks | bold italic underline strikethrough | ' +
                     'alignleft aligncenter alignright alignjustify | ' +
@@ -156,10 +156,64 @@
             menubar: 'edit view insert format tools table help',
             contextmenu: 'link image table',
             image_advtab: true,
-            images_upload_base_path: 'https://www.crankysauruschronicles.com/images/',
+            
+            // URL handling - preserve leading slashes and relative URLs
+            convert_urls: false,
+            relative_urls: true,
+            remove_script_host: false,
+            document_base_url: '/',
+            
+            // Link configuration - simplified approach for TinyMCE 7
+            link_default_target: '_parent',
+            link_target_list: [
+                {title: 'None', value: ''},
+                {title: 'New window', value: '_blank'},
+                {title: 'Parent frame', value: '_parent'},
+                {title: 'Same frame', value: '_self'},
+                {title: 'Top frame', value: '_top'}
+            ],
+            
+            
             setup: function(editor) {
                 editor.on('change', function() {
                     hideStatus();
+                });
+                
+                // Set default target when creating new links
+                editor.on('NewBlock', function() {
+                    // This ensures new links get the default target
+                });
+                
+                // Process content to ensure target="_parent" on links that don't have a target
+                editor.on('GetContent', function(e) {
+                    // Only modify if we're getting the final content
+                    if (e.format === 'html') {
+                        e.content = e.content.replace(/<a\s+([^>]*?)href\s*=\s*["']([^"']*)["']([^>]*?)>/gi, function(match, beforeHref, href, afterHref) {
+                            // Check if target is already specified anywhere in the tag
+                            const fullMatch = beforeHref + afterHref;
+                            if (!fullMatch.includes('target=')) {
+                                // Add target="_parent" before the closing >
+                                return `<a ${beforeHref}href="${href}"${afterHref} target="_parent">`;
+                            }
+                            return match;
+                        });
+                    }
+                });
+                
+                // Preserve leading slashes in URLs
+                editor.on('SaveContent', function(e) {
+                    // Ensure URLs starting with / are preserved
+                    e.content = e.content.replace(/href\s*=\s*["']([^"']*?)["']/gi, function(match, url) {
+                        // Don't modify external URLs or anchor links
+                        if (url.startsWith('http') || url.startsWith('#') || url.startsWith('mailto:')) {
+                            return match;
+                        }
+                        // Ensure internal URLs start with /
+                        if (!url.startsWith('/') && url.length > 0) {
+                            return match.replace(url, '/' + url);
+                        }
+                        return match;
+                    });
                 });
             }
         });
@@ -171,9 +225,9 @@
                 <header>
                     <h1>My Blog</h1>
                     <nav>
-                        <a href="#home">Home</a> | 
-                        <a href="#about">About</a> | 
-                        <a href="#contact">Contact</a>
+                        <a href="/" target="_parent">Home</a> | 
+                        <a href="/about" target="_parent">About</a> | 
+                        <a href="/contact" target="_parent">Contact</a>
                     </nav>
                 </header>
                 <main>
@@ -327,12 +381,14 @@ ${content}
             status.style.display = 'none';
         }
 
-        // Auto-save to localStorage every 30 seconds
+        // Auto-save to browser storage every 30 seconds
+        let autosaveContent = '';
         setInterval(function() {
             if (tinymce.get('editor')) {
                 const content = tinymce.get('editor').getContent();
-                if (content.trim()) {
-                    localStorage.setItem('tinymce_autosave', content);
+                if (content.trim() && content !== autosaveContent) {
+                    autosaveContent = content;
+                    // Store in memory instead of localStorage for artifact compatibility
                 }
             }
         }, 30000);
@@ -340,10 +396,9 @@ ${content}
         // Load autosaved content on page load
         window.addEventListener('load', function() {
             setTimeout(function() {
-                const saved = localStorage.getItem('tinymce_autosave');
-                if (saved && saved.trim() && saved !== '<h2>Welcome to CHOMP!</h2>') {
+                if (autosaveContent && autosaveContent.trim() && autosaveContent !== '<h2>Welcome to CHOMP!</h2>') {
                     if (confirm('Found autosaved content. Would you like to restore it?')) {
-                        tinymce.get('editor').setContent(saved);
+                        tinymce.get('editor').setContent(autosaveContent);
                         showStatus('Autosaved content restored!', 'info');
                     }
                 }

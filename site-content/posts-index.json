@@ -6,7 +6,7 @@
       "excerpt": "Everything you never wanted to know about this blog, but I’m going to tell you anyway.",
       "date": "2025-08-17",
       "lastModified": "2025-08-17T10:34:51.224193",
-      "contentFile": "posts/post-20250817-103451.html",
+      "contentFile": "posts/Answerosaurus_20250823-111327.html",
       "thumbnail": "images/FAQs.jpg"
     },
     {
@@ -15,18 +15,81 @@
       "excerpt": "A guide to non-dinosaur-supervised productivity approaches.",
       "date": "2025-08-23",
       "lastModified": "2025-08-23T11:13:27.221564",
-      "contentFile": "posts/The_Helpfulsaurus_Alternative_productivity_methods_20250823-111327.html",
+      "contentFile": "posts/Helpfulsaurus_20250823-111327.html",
       "thumbnail": "/images/Alternatives.jpg"
     }
   ],
   "latestPosts": [
+    {
+      "id": "The Demandasaurus_20260207-114453",
+      "title": "The Demandasaurus",
+      "excerpt": "Sometimes your Inner Five-Year-Old knows more about sustainable productivity than your sensible Adult Brain.",
+      "date": "2026-02-07",
+      "lastModified": "2026-02-07T11:44:53.921713",
+      "contentFile": "posts/The Demandasaurus_20260207-114453.html",
+      "thumbnail": "images/The Demandasaurus.jpg"
+    },
+    {
+      "id": "The Festivesaurus_20260131-085238",
+      "title": "The Festivesaurus",
+      "excerpt": "Mr Cranky said my system had failed. He was wrong — I'd just earned a guilt-free holiday season.",
+      "date": "2026-01-31",
+      "lastModified": "2026-01-31T09:16:20.127663",
+      "contentFile": "posts/The Festivesaurus_20260131-085238.html",
+      "thumbnail": "images/The Festivesaurus.jpg"
+    },
+    {
+      "id": "Retrospectasaurus_20260110-103232",
+      "title": "The Retrospectasaurus",
+      "excerpt": "A year-end reflection on how ROAR goals transformed a chronic incompletionist into someone who finally gets things done.",
+      "date": "2026-01-10",
+      "lastModified": "2026-01-10T10:32:32.000000",
+      "contentFile": "posts/Retrospectasaurus_20260110-103232.html",
+      "thumbnail": "images/The Retrospectasaurus.jpg"
+    },
+    {
+      "id": "The Curiousaurus_20251019-105417",
+      "title": "The Curiousaurus",
+      "excerpt": "Can sticker-based motivation help this confirmed non-morning-person establish a consistent early exercise routine?",
+      "date": "2025-10-19",
+      "lastModified": "2025-10-19T10:54:17.811265",
+      "contentFile": "posts/The Curiousaurus_20251019-105417.html",
+      "thumbnail": "images/The Curiousaurus.jpg"
+    },
+    {
+      "id": "Sparklesaurus_20251018-112621",
+      "title": "The Sparklesaurus",
+      "excerpt": "Why my sticker addiction is actually a scientifically valid productivity strategy (no, really).",
+      "date": "2025-10-18",
+      "lastModified": "2025-10-18T11:26:21.000000",
+      "contentFile": "posts/Sparklesaurus_20251018-112621.html",
+      "thumbnail": "images/Sparklesaurus.jpg"
+    },
+    {
+      "id": "Transformosaurus_20250928-112618",
+      "title": "The Transformosaurus: The visibility breakthrough",
+      "excerpt": "After years of failed systems, I discovered that wall-mounted goal tracking was the visibility breakthrough that finally made me someone who gets things done.",
+      "date": "2025-09-28",
+      "lastModified": "2025-09-28T11:26:18.000000",
+      "contentFile": "posts/Transformosaurus_20250928-112618.html",
+      "thumbnail": "images/The Transformosaurus.jpg"
+    },
+    {
+      "id": "Ask_Rexie_01_20250824-121622",
+      "title": "Ask Rexie #1",
+      "excerpt": "Rexie Roller tackles reader productivity problems with prehistoric wisdom and strategic chomping.",
+      "date": "2025-08-24",
+      "lastModified": "2025-08-24T12:16:22.189748",
+      "contentFile": "posts/Ask_Rexie_01_20250824-121622.html",
+      "thumbnail": "images/Ask_Rexie.jpg"
+    },
     {
       "id": "The_Professorsaurus_Meet_Rexie_Roller_20250823-105313",
       "title": "The Professorsaurus: Meet Rexie Roller",
       "excerpt": "An epic interview with The Crankysaurus Chronicles' Chief Dinosaur Supervisor Rexie Roller.",
       "date": "2025-08-23",
       "lastModified": "2025-08-23T10:53:13.978208",
-      "contentFile": "posts/The_Professorsaurus_Meet_Rexie_Roller_20250823-105313.html",
+      "contentFile": "posts/Professorsaurus_20250823-105313.html",
       "thumbnail": "/images/Meet_Rexie.jpg"
     },
     {
@@ -34,8 +97,8 @@
       "title": "The Revolutionasaurus: I am cranky, hear me ROAR!",
       "excerpt": "ROAR goals, sticker rewards, and dinosaur supervision for humans who've tried everything else.",
       "date": "2025-08-23",
-      "lastModified": "2025-08-23T09:29:58.686757",
-      "contentFile": "posts/The_Revolutionasaurus_I_am_cranky,_hear_me_ROAR_20250823-092958.html",
+      "lastModified": "2025-08-23T09:29:58.000000",
+      "contentFile": "posts/Revolutionasaurus_20250823-092958.html",
       "thumbnail": "images/The Revolutionosaurus.jpg"
     },
     {
@@ -44,8 +107,8 @@
       "excerpt": "Why SMART goals made me feel dumb, and how Supernanny accidentally solved my decades-long productivity crisis.",
       "date": "2025-08-17",
       "lastModified": "2025-08-17T14:05:04.193239",
-      "contentFile": "posts/post-20250817-122021.html",
-      "thumbnail": "images/The_Dopeysaurus-cropped.jpg"
+      "contentFile": "posts/Dopeysaurus_20250817-122021.html",
+      "thumbnail": "images/The_Dopeysaurus.jpg"
     }
   ]
 }

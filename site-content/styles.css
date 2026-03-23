@@ -29,7 +29,7 @@ body {
 .banner {
     position: relative;
     height: 20vh;
-    background-image: url('images/Dinosaur banner.png');
+    background-image: url('images/Dinosaur banner.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -229,7 +229,7 @@ body {
 }
 
 .post-thumbnail:not([style*="background-image"])::after {
-    content: 'ðŸ¦–';
+    content: '🦖';
     position: absolute;
     top: 50%;
     left: 50%;
@@ -267,7 +267,7 @@ body {
 .sidebar {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
     position: sticky;
     top: 2rem;
 }
@@ -277,7 +277,8 @@ body {
     background: white;
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
 }
 
 .search-input {
@@ -286,25 +287,27 @@ body {
     border: 2px solid #e9ecef;
     border-radius: 8px;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .search-input:focus {
     outline: none;
     border-color: #2d5016;
+    box-shadow: 0 0 0 3px rgba(45, 80, 22, 0.1);
 }
 
 .search-input::placeholder {
     color: #6c757d;
 }
 
-/* About This Blog Box */
+/* About This Blog Box - Updated to cream/beige */
 .about-blog {
-    background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
-    padding: 1.5rem;
+    background: linear-gradient(135deg, #f9f5f0, #f5efe6);
+    padding: 1.75rem;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-	margin-top: 6rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(139, 115, 85, 0.2);
+    margin-top: 6rem;
 }
 
 /* Fix sidebar spacing for different contexts */
@@ -318,8 +321,8 @@ body {
 
 .about-blog h3 {
     font-size: 1.1rem;
-    margin-bottom: 1rem;
-    color: #2c3e50;
+    margin-bottom: 1.25rem;
+    color: #6b5544;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -339,7 +342,7 @@ body {
 }
 
 .about-links a {
-    color: #2d5016;
+    color: #8b7355;
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
@@ -349,44 +352,56 @@ body {
 }
 
 .about-links a:hover {
-    color: #1a3009;
-    border-bottom-color: #2d5016;
+    color: #6b5544;
+    border-bottom-color: #8b7355;
 }
 
-/* Rexie's Content Box */
+/* Rexie's Content Box - Keep as is, works well! */
 .rexie-content {
-    background: linear-gradient(135deg, #2d5016, #3d6b1e);
+    background: linear-gradient(135deg, #c8d7ba, #d4e0c8);
     color: white;
-    padding: 1.5rem;
+    padding: 1.75rem;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(45, 80, 22, 0.3);
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rexie-content::before {
+    content: '🦖';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.3;
 }
 
 .rexie-content h3 {
     font-family: 'Erasaur', serif;
     font-size: 1.4rem;
-    margin-bottom: 1rem;
-    color: #fff;
+    margin-bottom: 1.25rem;
+    color: #3d4f2f;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .rexie-content h4 {
     font-size: 1.1rem;
     margin: 1rem 0 0.5rem 0;
-    color: white;
+    color: #2c3e50;
     font-weight: 600;
 }
 
 .rexie-content p {
     line-height: 1.5;
     margin-bottom: 0.75rem;
-    color: white;
+    color: #2c3e50;
 }
 
 .rexie-content a {
-    color: white;
+    color: #2c3e50;
     text-decoration: none;
     font-weight: 500;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -394,7 +409,7 @@ body {
 }
 
 .rexie-content a:hover {
-    color: #d4f0a7;
+    color: #2d5016;
     border-bottom-color: #d4f0a7;
 }
 
@@ -408,90 +423,51 @@ body {
     color: white;
 }
 
-/* Social Media Box */
-.social-placeholder {
-    background: linear-gradient(135deg, #4a7c59, #5d8f6a);
-    color: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(74, 124, 89, 0.3);
-    text-align: center;
-    position: relative;
-}
-
-.social-placeholder::before {
-    content: '';
-    width: 32px;
-    height: 32px;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSIxMDAwIiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTAwMCIgaGVpZ2h0PSIxMDAwIiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNNzc4LjQgMjMxLjhMMzA4LjMgNzY4LjJIMjIxLjZMMTIxLjYgNjMxLjhMNTE2LjcgMjMxLjhINzc4LjRaTTc3OC40IDc2OC4ySDczOC4xTDY5MS44IDY5MS44SDU5MS44TDY5MS44IDMwOC4ySDc3OC40VjIzMS44SDU5MS44TDMwOC4zIDc2OC4ySDIyMS42VjY5MS44SDU5MS44TDczOC4xIDIzMS44SDc3OC40VjMwOC4ySDY5MS44TDU5MS44IDMwOC4ySDc3OC40VjY5MS44WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: block;
-    margin: 0 auto 0.5rem;
-    opacity: 0.9;
-}
-
-.social-placeholder h3 {
-    font-size: 1.2rem;
-    color: white;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.social-placeholder p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-.social-placeholder.active {
-    background: linear-gradient(135deg, #000000, #1a1a1a);
-}
-
-.social-placeholder.active h3,
-.social-placeholder.active p {
-    color: white;
-}
-
-/* Quote Box */
+/* Quote Box - Updated to soft lavender/purple */
 .quote-box {
-    background: linear-gradient(135deg, #f4c430, #f0b90b);
-    color: #2c3e50;
-    padding: 1.5rem;
+    background: linear-gradient(135deg, #e8d5f0, #f0e5f5);
+    color: #4a3a5a;
+    padding: 1.75rem;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(244, 196, 48, 0.3);
+    box-shadow: 0 4px 12px rgba(138, 101, 165, 0.2);
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(138, 101, 165, 0.2);
+}
+
+.quote-box::before {
+    display: none;
 }
 
 .quote-box h3 {
     font-size: 1.1rem;
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: #4a3a5a;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    text-align: center;
 }
 
 .quote-text {
-    font-size: 1rem;
-    line-height: 1.4;
+    font-size: 1.05rem;
+    line-height: 1.5;
     font-style: italic;
-    margin-bottom: 0.75rem;
-    color: #2c3e50;
+    margin-bottom: 1rem;
+    color: #4a3a5a;
+    //padding-left: 1.5rem;
 }
 
 .quote-author {
     font-size: 0.85rem;
-    color: #4a4a4a;
+    color: #5a4a6a;
     font-weight: 500;
 }
 
 /* Post Content View */
 .post-content {
     display: none;
-	padding-top: 4rem;
+    padding-top: 4rem;
 }
 
 .post-hero-image {
@@ -540,6 +516,99 @@ body {
     font-style: italic;
 }
 
+/* Subscribe Box - Updated to soft pink */
+.subscribe-box {
+    background: linear-gradient(135deg, #ffe5f0, #fff0f5);
+    border-radius: 12px;
+    padding: 1.75rem;
+    box-shadow: 0 4px 12px rgba(255, 182, 193, 0.3);
+    border: 1px solid rgba(255, 182, 193, 0.3);
+}
+
+.subscribe-box h3 {
+    color: #8b5a6b;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 1.1rem;
+}
+
+.subscribe-box p {
+    color: #555;
+}
+
+.subscribe-box a {
+    color: #a66b7f;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.subscribe-box a:hover {
+    color: #8b5a6b;
+    border-bottom-color: #a66b7f;
+}
+
+.subscribe-form {
+    margin: 15px 0;
+}
+
+.subscribe-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.subscribe-input:focus {
+    outline: none;
+    border-color: #a66b7f;
+}
+
+.subscribe-btn {
+    width: 100%;
+    background-color: #a66b7f;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.subscribe-btn:hover {
+    background-color: #8b5a6b;
+}
+
+.privacy-note {
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Make all sidebar boxes consistent - remove individual margins since we use gap */
+.about-blog,
+.subscribe-box,
+.sidebar-search,
+.rexie-content,
+.quote-box {
+    margin-bottom: 0;
+}
+
+/* Privacy Notice for Post Pages */
+.privacy-notice {
+    background: #f8f9fa;
+    padding: 15px;
+    border-left: 4px solid #2d5a27;
+    margin-top: 30px;
+    border-radius: 0 8px 8px 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .content-with-sidebar {
@@ -550,7 +619,7 @@ body {
     .sidebar {
         order: -1;
         position: static;
-        gap: 1.2rem;
+        gap: 1.5rem;
     }
     
     .banner h1 {
@@ -580,6 +649,14 @@ body {
         padding: 1.5rem;
         margin-top: 1.5rem;
     }
+    
+    .about-blog,
+    .sidebar-search,
+    .subscribe-box,
+    .rexie-content,
+    .quote-box {
+        padding: 1.25rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -600,14 +677,30 @@ body {
         gap: 1.5rem;
     }
     
-    .sidebar > * {
-        padding: 1.2rem;
-    }
-    
     .nav-home {
         top: 15px;
         left: 15px;
         padding: 8px 16px;
         font-size: 0.9rem;
     }
+    
+    .sidebar {
+        gap: 1.25rem;
+    }
+    
+    .about-blog,
+    .sidebar-search,
+    .subscribe-box,
+    .rexie-content,
+    .quote-box {
+        padding: 1rem;
+    }
+}
+
+.interview-title {
+    margin-bottom: 10px;
+}
+
+.interview-subtitle {
+    margin-top: 5px;
 }

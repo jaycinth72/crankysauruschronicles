@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - The Crankysaurus Chronicles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="./fonts/Erasaur-wjZ9.woff" as="font" type="font/woff" crossorigin>
+    <style>
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #2d5a27;
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2d5a27;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e9ecef;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #2d5a27;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .submit-btn {
+            background-color: #2d5a27;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background-color: #1e3d1a;
+        }
+        
+        .rexie-note {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2d5a27;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .back-link a {
+            color: #2d5a27;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-method-info {
+            background: #e8f5e8;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-method-info h3 {
+            color: #2d5a27;
+            margin-top: 0;
+        }
+        
+        .required {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🦖 Contact The Crankysaurus Chronicles</h1>
+            <p>Get in touch with Mrs. Cranky or submit a question for Rexie!</p>
+        </div>
+        
+        <div class="contact-form">
+            <form id="contactForm" action="#" method="POST">
+                <div class="form-group">
+                    <label for="contactType">What can we help you with? <span class="required">*</span></label>
+                    <select name="contactType" id="contactType" required>
+                        <option value="">Please choose...</option>
+                        <option value="admin">General questions / Subscribe to updates</option>
+                        <option value="rexie">Ask Rexie - Submit a productivity question</option>
+                    </select>
+                </div>
+                
+                <div id="contactInfo" class="contact-method-info" style="display: none;">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+                
+                <div class="form-group">
+                    <label for="name">Your Name <span class="required">*</span></label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email <span class="required">*</span></label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject <span class="required">*</span></label>
+                    <input type="text" name="subject" id="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message <span class="required">*</span></label>
+                    <textarea name="message" id="message" placeholder="Tell us what's on your mind..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message 🦖</button>
+                
+                <div class="rexie-note">
+                    <p><strong>REXIE SAY:</strong> "HUMAN SEND MESSAGE, REXIE READ MESSAGE, REXIE MAYBE NO CHOMP IF MESSAGE GOOD!"</p>
+                </div>
+            </form>
+        </div>
+        
+        <div class="back-link">
+            <a href="index.html">← Back to The Crankysaurus Chronicles</a>
+        </div>
+        
+        <footer style="text-align: center; margin-top: 2rem; padding: 1rem; color: #666; font-size: 0.9rem;">
+            <p><a href="privacy-policy.html" onclick="return openPrivacyPolicy();" style="color: #2d5a27;">Privacy Policy</a> | By submitting this form, you agree to our privacy policy.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Function to handle privacy policy link
+        function openPrivacyPolicy() {
+            // Try to open in new tab first
+            const newWindow = window.open('privacy-policy.html', '_blank');
+            
+            // If that doesn't work, allow normal navigation but warn user
+            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                return confirm('This will open the Privacy Policy in this tab. You may lose your form data. Continue?\n\nTip: Right-click and select "Open in new tab" to keep your form.');
+            }
+            
+            // If new tab opened successfully, prevent normal navigation
+            return false;
+        }
+        // Handle contact type selection
+        document.getElementById('contactType').addEventListener('change', function() {
+            const contactInfo = document.getElementById('contactInfo');
+            const selectedValue = this.value;
+            
+            if (selectedValue === 'admin') {
+                contactInfo.innerHTML = `
+                    <h3>📧 General Contact & Subscriptions</h3>
+                    <p>Perfect! Your message will go to Mrs. Cranky for general questions, subscription requests, or administrative matters.</p>
+                `;
+                contactInfo.style.display = 'block';
+            } else if (selectedValue === 'rexie') {
+                contactInfo.innerHTML = `
+                    <h3>🦖 Ask Rexie Advice Column</h3>
+                    <p>Excellent choice! Your productivity question will be forwarded to Chief Dinosaur Supervisor Rexie Roller. He loves chomping through procrastination problems!</p>
+                    <p><strong>Note:</strong> Questions may be featured in our "Ask Rexie" blog posts (with your permission and anonymized if requested).</p>
+                `;
+                contactInfo.style.display = 'block';
+            } else {
+                contactInfo.style.display = 'none';
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const contactType = formData.get('contactType');
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Determine which email to send to
+            const toEmail = contactType === 'admin' ? 'admin@crankysauruschronicles.com' : 'askrexie@crankysauruschronicles.com';
+            
+            // Create mailto link with all the form data
+            const mailtoLink = `mailto:${toEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\n---\nSent via TCC Contact Form`
+            )}`;
+            
+            // Try to open in new window/tab
+            const newWindow = window.open(mailtoLink, '_blank');
+            
+            // Fallback for browsers that don't allow opening mailto in new tab
+            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                // Show instructions instead
+                showEmailInstructions(toEmail, subject, name, email, message);
+            } else {
+                // Show success message but keep them on the site
+                showSuccessMessage(toEmail);
+            }
+        });
+
+        function showSuccessMessage(email) {
+            const form = document.getElementById('contactForm');
+            form.innerHTML = `
+                <div style="text-align: center; padding: 2rem;">
+                    <h2 style="color: #2d5a27;">🦖 Message Prepared!</h2>
+                    <p>Your email client should have opened with your message ready to send to <strong>${email}</strong>.</p>
+                    <p>If it didn't open automatically, you can copy the email address above and send your message manually.</p>
+                    <div style="margin: 2rem 0;">
+                        <button onclick="location.reload()" style="background-color: #2d5a27; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; margin-right: 1rem;">Send Another Message</button>
+                        <button onclick="window.location.href='index.html'" style="background-color: #666; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 5px; cursor: pointer;">Back to TCC</button>
+                    </div>
+                    <div class="rexie-note">
+                        <p><strong>REXIE SAY:</strong> "GOOD HUMAN! REXIE WAIT FOR MESSAGE! NO FORGET SEND OR REXIE CHOMP!"</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showEmailInstructions(toEmail, subject, name, email, message) {
+            const form = document.getElementById('contactForm');
+            form.innerHTML = `
+                <div style="text-align: center; padding: 2rem;">
+                    <h2 style="color: #2d5a27;">📧 Copy This Information</h2>
+                    <p>Your browser doesn't allow opening email automatically. Please copy this information and send it manually:</p>
+                    
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin: 1rem 0; text-align: left;">
+                        <p><strong>To:</strong> <span style="background: yellow; padding: 2px;">${toEmail}</span></p>
+                        <p><strong>Subject:</strong> ${subject}</p>
+                        <p><strong>Message:</strong></p>
+                        <div style="background: white; padding: 1rem; border: 1px solid #ddd; white-space: pre-line;">Name: ${name}
+Email: ${email}
+
+Message:
+${message}
+
+---
+Sent via TCC Contact Form</div>
+                    </div>
+                    
+                    <div style="margin: 2rem 0;">
+                        <button onclick="location.reload()" style="background-color: #2d5a27; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; margin-right: 1rem;">Send Another Message</button>
+                        <button onclick="window.location.href='index.html'" style="background-color: #666; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 5px; cursor: pointer;">Back to TCC</button>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
